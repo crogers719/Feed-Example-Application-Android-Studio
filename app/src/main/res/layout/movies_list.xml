@@ -16,7 +16,7 @@
             <com.android.volley.toolbox.NetworkImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageViewHero" />
+                android:id="@+id/imageViewMovie" />
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -24,14 +24,14 @@
 
                 <TableRow>
                     <TextView
-                        android:text="Name"
+                        android:text="Title"
                         android:paddingRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         />
 
                     <TextView
-                        android:id="@+id/textViewName"
+                        android:id="@+id/textViewTitle"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -41,14 +41,14 @@
 
                 <TableRow>
                     <TextView
-                        android:text="Publisher"
+                        android:text="Date"
                         android:paddingRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         />
 
                     <TextView
-                        android:id="@+id/textViewPublisher"
+                        android:id="@+id/textViewYear"
                         android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

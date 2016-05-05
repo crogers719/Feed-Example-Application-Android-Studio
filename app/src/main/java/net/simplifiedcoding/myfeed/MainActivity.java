@@ -25,8 +25,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements RecyclerView.OnScrollChangeListener {
 
-    //Creating a List of superheroes
-    private List<SuperHero> listSuperHeroes;
+    //Creating a List of movies
+    private List<Movie> listMovies;
 
     //Creating Views
     private RecyclerView recyclerView;
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        //Initializing our superheroes list
-        listSuperHeroes = new ArrayList<>();
+        //Initializing our  list
+        listMovies = new ArrayList<>();
         requestQueue = Volley.newRequestQueue(this);
 
         //Calling method to get data to fetch data
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
         recyclerView.setOnScrollChangeListener(this);
 
         //initializing our adapter
-        adapter = new CardAdapter(listSuperHeroes, this);
+        adapter = new CardAdapter(listMovies, this);
 
         //Adding adapter to recyclerview
         recyclerView.setAdapter(adapter);
@@ -113,22 +113,22 @@ public class MainActivity extends AppCompatActivity implements RecyclerView.OnSc
     //This method will parse json data
     private void parseData(JSONArray array) {
         for (int i = 0; i < array.length(); i++) {
-            //Creating the superhero object
-            SuperHero superHero = new SuperHero();
+            //Creating the Movie object
+            Movie movie = new Movie();
             JSONObject json = null;
             try {
                 //Getting json
                 json = array.getJSONObject(i);
 
                 //Adding data to the superhero object
-                superHero.setImageUrl(json.getString(Config.TAG_IMAGE_URL));
-                superHero.setName(json.getString(Config.TAG_NAME));
-                superHero.setPublisher(json.getString(Config.TAG_PUBLISHER));
+                movie.setImageUrl(json.getString(Config.TAG_IMAGE_URL));
+                movie.setTitle(json.getString(Config.TAG_TITLE));
+                movie.setYear(json.getString(Config.TAG_YEAR));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             //Adding the superhero object to the list
-            listSuperHeroes.add(superHero);
+            listMovies.add(movie);
         }
 
         //Notifying the adapter that data has been added or changed
